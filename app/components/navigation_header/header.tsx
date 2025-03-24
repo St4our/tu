@@ -140,8 +140,10 @@ const getStyleSheet = makeStyleSheetFromTheme((theme: Theme) => ({
     leftContainer: {
         height: '100%',
         justifyContent: 'center',
+        paddingRight: 5,
         ...Platform.select({
             ios: {
+                paddingRight: 5,
                 paddingLeft: 16,
                 zIndex: 5,
                 position: 'absolute',
@@ -154,8 +156,10 @@ const getStyleSheet = makeStyleSheetFromTheme((theme: Theme) => ({
         flexDirection: 'row',
         height: '100%',
         justifyContent: 'flex-end',
+        paddingLeft: 5,
         ...Platform.select({
             ios: {
+                paddingLeft: 5,
                 right: 16,
                 bottom: 0,
                 position: 'absolute',
@@ -403,12 +407,23 @@ const Header = ({
             </Animated.View>
             
             {!isLargeTitle && Boolean(subtitle || subtitleCompanion) &&
+            // <TouchableOpacity onPress={handlePress} hitSlop={{ 
+            //     top: 40, 
+            //     bottom: 40, 
+            //     left: 40, 
+            //     right: 40 
+            //   }}
+            //   style={{ zIndex: 10, position: 'absolute', right: 30, top: 10 }}>
             <TouchableOpacity onPress={handlePress} hitSlop={{ 
                 top: 40, 
                 bottom: 40, 
                 left: 40, 
                 right: 40 
-              }}>
+              }}
+              style={styles.rightContainer}>
+            
+
+            
                 
                 <Image
                     style={styles.callLogo}
